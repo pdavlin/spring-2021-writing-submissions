@@ -1,0 +1,66 @@
+% BEGIN TEMPLATE
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{hyperref} 
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{listings}
+\usepackage{float}
+\usepackage[title]{appendix}
+\graphicspath{ {../../images/} }
+\bibliographystyle{acm}
+% CHANGE THESE
+\newcommand{\courseListing}{CSCI 8920}
+\newcommand{\courseName}{Fundamentals of Deep Learning}
+\newcommand{\assignmentTitle}{Homework Assignment \#1}
+\newcommand{\assignmentSubtitle}{Dataset Processing Functions}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\urlstyle{same}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{mystyle}{
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+  \input{../../templates/titlepage.tex}
+  \graphicspath{{./images/}}
+% END TEMPLATE
+\section{Introduction}
+
+
+
+\section{Project Setup}
+
+\section{Process \& Results} \label{procresults}
+\section{Conclusions}
+
+\newpage
+\begin{appendices}
+\section{Complete Code Listing} \label{codelist}
+% \lstinputlisting[language=Python]{hw-1.py}
+\end{appendices}
+\end{document}
