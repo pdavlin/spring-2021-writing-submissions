@@ -1,0 +1,53 @@
+(venv) PS E:\Development\csci-8920\hw-1> python .\hw-1.py
+2021-02-07 12:38:25.123723: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-07 12:38:27.328442: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-07 12:38:27.329419: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library nvcuda.dll
+2021-02-07 12:38:27.357749: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce RTX 3080 computeCapability: 8.6
+coreClock: 1.755GHz coreCount: 68 deviceMemorySize: 10.00GiB deviceMemoryBandwidth: 707.88GiB/s
+2021-02-07 12:38:27.358351: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
+2021-02-07 12:38:27.363435: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
+2021-02-07 12:38:27.371679: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
+2021-02-07 12:38:27.374283: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
+2021-02-07 12:38:27.375209: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
+2021-02-07 12:38:27.380333: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
+2021-02-07 12:38:27.388930: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
+2021-02-07 12:38:27.390095: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
+2021-02-07 12:38:27.390431: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+Num GPUs Available:  1
+-----
+size of holdout training data with 0.7 ratio: 35000 records
+size of holdout validation data with 0.7 ratio: 15000 records
+-----
+getting 9 groups of data with k-folding and setting group 1 as the validation set
+training set length: 44444, validation set length: 5556
+-----
+sampling five batches of 106 CIFAR10 images
+106 images in batch 1
+106 images in batch 2
+106 images in batch 3
+106 images in batch 4
+106 images in batch 5
+-----
+getting ten batches of size 15040 from CIFAR10 data
+generator produced 15040 records for iteration 1
+generator produced 15040 records for iteration 2
+generator produced 15040 records for iteration 3
+data wraparound occurred here; pulling 10160 records from front
+generator produced 15040 records for iteration 4
+generator produced 15040 records for iteration 5
+generator produced 15040 records for iteration 6
+data wraparound occurred here; pulling 5280 records from front
+generator produced 15040 records for iteration 7
+generator produced 15040 records for iteration 8
+generator produced 15040 records for iteration 9
+data wraparound occurred here; pulling 400 records from front
+generator produced 15040 records for iteration 10
+-----
+getting 6 groups of data with iterative k-folding
+fold 1: training size -- 41666, validation size -- 8334
+fold 2: training size -- 41666, validation size -- 8334
+fold 3: training size -- 41667, validation size -- 8333
+fold 4: training size -- 41667, validation size -- 8333
+fold 5: training size -- 41667, validation size -- 8333
+fold 6: training size -- 41667, validation size -- 8333
