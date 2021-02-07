@@ -78,7 +78,7 @@ As such, this assignment was done entirely on a local machine using the followin
 
 \section{Implementation} \label{impl}
 \textit{Note: this section discusses sections of code; the entire project can be found in the \nameref{codelist}}.
-\\\\
+\subsection{Loading CIFAR10 Data}
 The first task for the assignment was to load and output CIFAR10 data:
 \begin{lstlisting}[language=Python]
 # Load CIFAR10 data
@@ -97,6 +97,7 @@ To confirm, the resulting images are below:
     \label{fig:data}
 \end{figure}
 
+\subsection{Holdout}
 Implementing the first three methods (Holdout, K-Fold, and Bootstrapping) was a fairly straightforward exercise.
 Being listed first, and being the most straightforward, the holdout function was implemented as a simple way to create a pre-defined split of the provided data:
 \begin{lstlisting}[language=Python]
@@ -109,17 +110,76 @@ def holdout(data_in,training_pct=0.7):
 \end{lstlisting}
 
 For a dataset with 50,000 entries, like the CIFAR-10 data, the split comes out to 35,000 training images and 15,000 testing images.
+Output confirming this is available in the \nameref{completeout} Appendix.
 
+\subsection{K-Fold Cross-Validation}
+Implementing K-folds required some thought about how to properly divide records into groups.
+Dividing evenly is easy; 50,000 images in five groups yields even groups of 10,000 images, but dividing the same 50,000 images into six groups would leave two images unused.
+With this in mind, it was important to add the "remainder" records to groups, taking care to keep them as even as possible:
+\begin{lstlisting}[language=Python]
+def k_folds(data_in, num_groups, validation_set_index):
+  np.random.shuffle(data_in)
+  leftover_records_as_divided = len(data_in) % num_groups
+  num_records_in_k_group = math.floor(len(data_in)/num_groups)
+  k_groups = []
+  previous_k_slice = 0
+  for i in range(num_groups):
+    k_slice = previous_k_slice + num_records_in_k_group
+    if i < leftover_records_as_divided:
+      k_slice = k_slice + 1
+    k_group = data_in[previous_k_slice:k_slice]
+    k_groups.append(k_group)
+    previous_k_slice = k_slice
+\end{lstlisting}
+
+To extend the example, dividing 50,000 images into six groups would provide four groups of 16,666 images and two groups of 16,667 images, creating an even sum of 50,000 total images.
+
+After dividing the inital dataset into groups, the next task is to designate one as the validation set and combine the remaining groups into a training set, then return both:
+\begin{lstlisting}[language=Python]
+  training_set = np.array([])
+  for i in range(len(k_groups)):
+    if i == validation_set_index -1:
+      validation_set = k_groups[i]
+    else:
+      if training_set.size == 0:
+        training_set = k_groups[i]
+      else:
+        training_set = np.concatenate((training_set,k_groups[i]))
+  return training_set, validation_set
+\end{lstlisting}
+Again, complete output confirming this is available in the \nameref{completeout} Appendix.
+
+\subsection{Bootstrapping}
+The bootstrapping process felt, generally, more vague than other methods.
+Not much clarity was developed around what parts of the input set would qualify as validation sets once needed, so a general sampling method was developed:
+\begin{lstlisting}[language=Python]
+def bootstrap(data_in, batch_size, num_batches):
+  bootstrap_datasets=[None] * num_batches
+  for i in range(num_batches):
+      bootstrap_datasets[i] = []
+      np.random.shuffle(data_in)
+      random_indices = generate_random_numbers(batch_size, len(data_in))
+      for j in random_indices:
+          bootstrap_datasets[i].append(data_in[j])
+  return bootstrap_datasets
+\end{lstlisting}
+
+Of note, the \lstinline{generate\_random\_numbers()} method generates an array of random numbers without worrying whether any number appears twice, to adhere to the "with replacement" requirement in bootstrapping.
+This general method allows for any size data to be returned, up to the input dataset's length, and any number of randomly-sampled batches.
+
+\subsection{Batch Generator}
+TODO
 
 \section{Results \& Observations} \label{observations}
+TODO
 \section{Conclusions}
 Having extensively used Keras models in CSCI 8110, without thinking of the ways that datasets are used in training and validating those models, made this assignment much more valuable.
 Oftentimes in that class, models I implemented were "thrown" together without much of an eye toward the quality or organization of data being used as a basis upon which the model would operate.
 
 \newpage
 \begin{appendices}
-\section{Complete Program Output}
-\lstinputlisting{hw-1.py}
+\section{Complete Program Output} \label{completeout}
+\lstinputlisting{hw-1-out.txt}
 \section{Complete Code Listing} \label{codelist}
 \lstinputlisting[language=Python]{hw-1.py}
 \end{appendices}

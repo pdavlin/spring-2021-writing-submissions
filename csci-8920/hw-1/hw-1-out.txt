@@ -1,19 +1,5 @@
 (venv) PS E:\Development\csci-8920\hw-1> python .\hw-1.py
-2021-02-07 12:38:25.123723: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
-2021-02-07 12:38:27.328442: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
-2021-02-07 12:38:27.329419: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library nvcuda.dll
-2021-02-07 12:38:27.357749: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties: 
-pciBusID: 0000:01:00.0 name: GeForce RTX 3080 computeCapability: 8.6
-coreClock: 1.755GHz coreCount: 68 deviceMemorySize: 10.00GiB deviceMemoryBandwidth: 707.88GiB/s
-2021-02-07 12:38:27.358351: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudart64_110.dll
-2021-02-07 12:38:27.363435: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublas64_11.dll
-2021-02-07 12:38:27.371679: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cublasLt64_11.dll
-2021-02-07 12:38:27.374283: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cufft64_10.dll
-2021-02-07 12:38:27.375209: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library curand64_10.dll
-2021-02-07 12:38:27.380333: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusolver64_10.dll
-2021-02-07 12:38:27.388930: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cusparse64_11.dll
-2021-02-07 12:38:27.390095: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library cudnn64_8.dll
-2021-02-07 12:38:27.390431: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+
 Num GPUs Available:  1
 -----
 size of holdout training data with 0.7 ratio: 35000 records
